@@ -1,4 +1,4 @@
-# GrafanaDashboard
+# Grafana Dashboard for 1kv node operator
 ![image](https://user-images.githubusercontent.com/66147586/152936484-3106863b-72db-4ad0-87ef-867d3548dcab.png)
 
 
@@ -77,7 +77,8 @@ You should have 15 data sources
 
 ## 4. Import Dashboard
 Match input to data sources from drop down. If you follow the naming convention from step 3 everything should match
- ![image](https://user-images.githubusercontent.com/66147586/152936127-7f5253b8-3062-49fc-a26c-3d373a830430.png)
+ ## Missing image!! add it!!
+ 
 
 ## 5. Change top of the page links
 Top of the page click on the Gear icon > select Links
@@ -89,8 +90,8 @@ To modify link, click on the box with arrow next to the link
 
  ![image](https://user-images.githubusercontent.com/66147586/152936174-eb7bacdf-e610-4b6f-b440-542d170c9c09.png)
 
-## 6. Dashboard Ticks
-Dashboard is set to not refresh unless you select the refresh button, this can be changed to refresh every ```(30sec, 1min, 5min,15min, 30min, 1hr, 2hr, 1day)```
+## 6. Dashboard Refresh
+Dashboard is set to not refresh unless you select the refresh button, this can be changed to refresh every ```(30sec, 1min, 5min, 15min, 30min, 1hr, 2hr, 1day)```
 
 I don't want to waste Will's resources if I don't need to.
 
