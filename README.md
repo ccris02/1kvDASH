@@ -1,5 +1,6 @@
 # Grafana Dashboard for 1kv node operator
-![image](https://user-images.githubusercontent.com/66147586/152936484-3106863b-72db-4ad0-87ef-867d3548dcab.png)
+![1kv](https://user-images.githubusercontent.com/66147586/153630377-a05afd07-4ac0-4a2f-9d20-42c34da1d4e8.PNG)
+
 
 
 ## 1. Set up a free Grafana Cloud.
