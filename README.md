@@ -52,7 +52,7 @@ Make sure to modify the addresses of ksm_1, ksm_2, and dot_1 to display your Val
 ```https://kusama.w3f.community/score/GnqygxyvFN7npYbMUv6t7avBnLrVB37topoDbhPVnBeeuxa```
 - ksm_candidates
 ```https://kusama.w3f.community/candidates```
-- ksm_erastat
+- ksm_erastats
 ```https://kusama.w3f.community/erastats```
 - ksm_location
 ```https://kusama.w3f.community/locationstats```
@@ -64,9 +64,9 @@ Make sure to modify the addresses of ksm_1, ksm_2, and dot_1 to display your Val
 ```https://polkadot.w3f.community/erapoints/149riLdwAVzXg7Cm88RcXhbuFi3zUgwrGsJSSPjC47PRxHQW```
 - dot_1_score
 ```https://polkadot.w3f.community/score/149riLdwAVzXg7Cm88RcXhbuFi3zUgwrGsJSSPjC47PRxHQW```
-- dot_candidate
+- dot_candidates
 ```https://polkadot.w3f.community/candidates```
-- dot_erastat
+- dot_erastats
 ```https://polkadot.w3f.community/erastats```
 - dot_location
 ```https://polkadot.w3f.community/locationstats```
