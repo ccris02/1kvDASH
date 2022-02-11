@@ -77,8 +77,12 @@ You should have 15 data sources
 ![image](https://user-images.githubusercontent.com/66147586/152936101-35681939-70ce-456b-8dcc-01fa3905607e.png)
 
 ## 4. Import Dashboard
-Match input to data sources from drop down. If you follow the naming convention from step 3 everything should match
+Import via grafana.com `15741`
 
+https://grafana.com/grafana/dashboards/15741
+![image](https://user-images.githubusercontent.com/66147586/153655253-e0428f7a-af17-45ef-8e7f-9285d510f355.png)
+
+Match input to data sources from drop down. If you follow the naming convention from step 3 everything should match
 ![image](https://user-images.githubusercontent.com/66147586/153524297-10c86c06-8a69-4d46-ab51-ce83de056f6a.png)
 
 
