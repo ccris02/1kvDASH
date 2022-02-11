@@ -1,8 +1,16 @@
 {
   "__inputs": [
     {
-      "name": "DS_KSM_ERASTAT",
-      "label": "ksm_erastat",
+      "name": "DS_KSM_LOCATION",
+      "label": "ksm_location",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "marcusolsson-json-datasource",
+      "pluginName": "JSON API"
+    },
+    {
+      "name": "DS_DOT_LOCATION",
+      "label": "dot_location",
       "description": "",
       "type": "datasource",
       "pluginId": "marcusolsson-json-datasource",
@@ -35,22 +43,6 @@
     {
       "name": "DS_DOT_1_SCORE",
       "label": "dot_1_score",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "marcusolsson-json-datasource",
-      "pluginName": "JSON API"
-    },
-    {
-      "name": "DS_KSM_LOCATION",
-      "label": "ksm_location",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "marcusolsson-json-datasource",
-      "pluginName": "JSON API"
-    },
-    {
-      "name": "DS_DOT_LOCATION",
-      "label": "dot_location",
       "description": "",
       "type": "datasource",
       "pluginId": "marcusolsson-json-datasource",
@@ -146,12 +138,6 @@
       "id": "table",
       "name": "Table",
       "version": ""
-    },
-    {
-      "type": "panel",
-      "id": "yesoreyeram-boomtheme-panel",
-      "name": "Boom Theme",
-      "version": "0.2.1"
     }
   ],
   "annotations": {
@@ -179,6 +165,18 @@
   "graphTooltip": 1,
   "id": null,
   "links": [
+    {
+      "asDropdown": false,
+      "icon": "info",
+      "includeVars": false,
+      "keepTime": false,
+      "tags": [],
+      "targetBlank": true,
+      "title": "Data for this Dashboard is pulled from few w3f API, sometimes endpoints could be down!!",
+      "tooltip": "",
+      "type": "link",
+      "url": "https://kusama.w3f.community/candidates"
+    },
     {
       "asDropdown": true,
       "icon": "bolt",
@@ -303,54 +301,235 @@
   "liveNow": false,
   "panels": [
     {
-      "gridPos": {
-        "h": 2,
-        "w": 4,
-        "x": 0,
-        "y": 0
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
+        "uid": "${DS_KSM_LOCATION}"
       },
-      "id": 24,
-      "options": {
-        "disableThemePicker": false,
-        "themes": [
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 5
+              },
+              {
+                "color": "dark-red",
+                "value": 9
+              }
+            ]
+          }
+        },
+        "overrides": [
           {
-            "name": "Dark",
-            "styles": [
+            "matcher": {
+              "id": "byName",
+              "options": "Location"
+            },
+            "properties": [
               {
-                "props": {
-                  "theme": "default"
-                },
-                "type": "basetheme"
-              },
+                "id": "custom.width",
+                "value": 136
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "# of Nodes"
+            },
+            "properties": [
               {
-                "props": {
-                  "url": "https://shandiinblog.files.wordpress.com/2018/03/dark-skies-4.jpg"
-                },
-                "type": "bgimage"
-              },
-              {
-                "props": {
-                  "url": ""
-                },
-                "type": "url"
-              },
-              {
-                "props": {
-                  "text": ""
-                },
-                "type": "style"
+                "id": "custom.width",
+                "value": 86
               }
             ]
           }
         ]
       },
-      "pluginVersion": "0.2.1",
-      "type": "yesoreyeram-boomtheme-panel"
+      "gridPos": {
+        "h": 30,
+        "w": 2,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "# of Nodes"
+          }
+        ]
+      },
+      "pluginVersion": "8.3.6",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "${DS_KSM_LOCATION}"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.locations[*].name",
+              "language": "jsonpath",
+              "name": "Location"
+            },
+            {
+              "jsonPath": "$.locations[*].numberOfNodes",
+              "language": "jsonpath",
+              "name": "# of Nodes"
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": ""
+        }
+      ],
+      "title": "Kusama Node Locations",
+      "type": "table"
     },
     {
       "datasource": {
         "type": "marcusolsson-json-datasource",
-        "uid": "${DS_KSM_ERASTAT}"
+        "uid": "${DS_DOT_LOCATION}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "center",
+            "displayMode": "color-text",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#eb07bb",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 3
+              },
+              {
+                "color": "dark-red",
+                "value": 4
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Location"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 126
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "# of Nodes"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 87
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 30,
+        "w": 2,
+        "x": 2,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": [
+          {
+            "desc": true,
+            "displayName": "# of Nodes"
+          }
+        ]
+      },
+      "pluginVersion": "8.3.6",
+      "targets": [
+        {
+          "cacheDurationSeconds": 300,
+          "datasource": {
+            "type": "marcusolsson-json-datasource",
+            "uid": "${DS_DOT_LOCATION}"
+          },
+          "fields": [
+            {
+              "jsonPath": "$.locations[*].name",
+              "language": "jsonpath",
+              "name": "Location"
+            },
+            {
+              "jsonPath": "$.locations[*].numberOfNodes",
+              "language": "jsonpath",
+              "name": "# of Nodes"
+            }
+          ],
+          "method": "GET",
+          "queryParams": "",
+          "refId": "A",
+          "urlPath": ""
+        }
+      ],
+      "title": "Polkadot Node Location",
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "marcusolsson-json-datasource",
+        "uid": "${DS_DOT_ERASTAT}"
       },
       "fieldConfig": {
         "defaults": {
@@ -524,7 +703,7 @@
           "cacheDurationSeconds": 300,
           "datasource": {
             "type": "marcusolsson-json-datasource",
-            "uid": "${DS_KSM_ERASTAT}"
+            "uid": "${DS_DOT_ERASTAT}"
           },
           "fields": [
             {
@@ -1647,232 +1826,6 @@
     {
       "datasource": {
         "type": "marcusolsson-json-datasource",
-        "uid": "${DS_KSM_LOCATION}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "displayMode": "color-text",
-            "filterable": true
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 5
-              },
-              {
-                "color": "dark-red",
-                "value": 9
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Location"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 136
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "# of Nodes"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 86
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 29,
-        "w": 2,
-        "x": 0,
-        "y": 2
-      },
-      "id": 2,
-      "options": {
-        "footer": {
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "# of Nodes"
-          }
-        ]
-      },
-      "pluginVersion": "8.3.6",
-      "targets": [
-        {
-          "cacheDurationSeconds": 300,
-          "datasource": {
-            "type": "marcusolsson-json-datasource",
-            "uid": "${DS_KSM_LOCATION}"
-          },
-          "fields": [
-            {
-              "jsonPath": "$.locations[*].name",
-              "language": "jsonpath",
-              "name": "Location"
-            },
-            {
-              "jsonPath": "$.locations[*].numberOfNodes",
-              "language": "jsonpath",
-              "name": "# of Nodes"
-            }
-          ],
-          "method": "GET",
-          "queryParams": "",
-          "refId": "A",
-          "urlPath": ""
-        }
-      ],
-      "title": "Kusama Node Locations",
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "marcusolsson-json-datasource",
-        "uid": "${DS_DOT_LOCATION}"
-      },
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "mode": "thresholds"
-          },
-          "custom": {
-            "align": "center",
-            "displayMode": "color-text",
-            "filterable": true
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "#eb07bb",
-                "value": null
-              },
-              {
-                "color": "#EAB839",
-                "value": 3
-              },
-              {
-                "color": "dark-red",
-                "value": 4
-              }
-            ]
-          }
-        },
-        "overrides": [
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Location"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 126
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "# of Nodes"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 87
-              }
-            ]
-          }
-        ]
-      },
-      "gridPos": {
-        "h": 29,
-        "w": 2,
-        "x": 2,
-        "y": 2
-      },
-      "id": 3,
-      "options": {
-        "footer": {
-          "fields": "",
-          "reducer": [
-            "sum"
-          ],
-          "show": false
-        },
-        "showHeader": true,
-        "sortBy": [
-          {
-            "desc": true,
-            "displayName": "# of Nodes"
-          }
-        ]
-      },
-      "pluginVersion": "8.3.6",
-      "targets": [
-        {
-          "cacheDurationSeconds": 300,
-          "datasource": {
-            "type": "marcusolsson-json-datasource",
-            "uid": "${DS_DOT_LOCATION}"
-          },
-          "fields": [
-            {
-              "jsonPath": "$.locations[*].name",
-              "language": "jsonpath",
-              "name": "Location"
-            },
-            {
-              "jsonPath": "$.locations[*].numberOfNodes",
-              "language": "jsonpath",
-              "name": "# of Nodes"
-            }
-          ],
-          "method": "GET",
-          "queryParams": "",
-          "refId": "A",
-          "urlPath": ""
-        }
-      ],
-      "title": "Polkadot Node Location",
-      "type": "table"
-    },
-    {
-      "datasource": {
-        "type": "marcusolsson-json-datasource",
         "uid": "${DS_KSM_CANDIDATES}"
       },
       "fieldConfig": {
@@ -1917,7 +1870,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 217
+                "value": 212
               }
             ]
           },
@@ -2044,11 +1997,27 @@
                 "value": 96
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Commission"
+            },
+            "properties": [
+              {
+                "id": "unit",
+                "value": "percent"
+              },
+              {
+                "id": "custom.width",
+                "value": 105
+              }
+            ]
           }
         ]
       },
       "gridPos": {
-        "h": 17,
+        "h": 18,
         "w": 7,
         "x": 4,
         "y": 3
@@ -2118,6 +2087,11 @@
               "jsonPath": "active",
               "language": "jsonata",
               "name": "Active"
+            },
+            {
+              "jsonPath": "commission",
+              "language": "jsonata",
+              "name": "Commission"
             }
           ],
           "method": "GET",
@@ -2319,7 +2293,7 @@
         ]
       },
       "gridPos": {
-        "h": 17,
+        "h": 18,
         "w": 7,
         "x": 11,
         "y": 3
@@ -2951,7 +2925,7 @@
         "h": 3,
         "w": 14,
         "x": 4,
-        "y": 20
+        "y": 21
       },
       "id": 9,
       "options": {
@@ -3026,12 +3000,6 @@
               "jsonPath": "nominatedAt",
               "language": "jsonata",
               "name": "Nominated"
-            },
-            {
-              "jsonPath": "unclaimedEras[*]",
-              "language": "jsonata",
-              "name": "Unclaimed",
-              "type": "number"
             }
           ],
           "hide": false,
@@ -3273,7 +3241,7 @@
         "h": 3,
         "w": 14,
         "x": 4,
-        "y": 23
+        "y": 24
       },
       "id": 21,
       "options": {
@@ -3348,12 +3316,6 @@
               "jsonPath": "nominatedAt",
               "language": "jsonata",
               "name": "Nominated"
-            },
-            {
-              "jsonPath": "unclaimedEras[*]",
-              "language": "jsonata",
-              "name": "Unclaimed",
-              "type": "string"
             }
           ],
           "hide": false,
@@ -3607,7 +3569,7 @@
         "h": 3,
         "w": 14,
         "x": 4,
-        "y": 26
+        "y": 27
       },
       "id": 19,
       "options": {
@@ -3686,12 +3648,6 @@
               "jsonPath": "nominatedAt",
               "language": "jsonata",
               "name": "Nominated"
-            },
-            {
-              "jsonPath": "unclaimedEras[*]",
-              "language": "jsonata",
-              "name": "Unclaimed",
-              "type": "string"
             }
           ],
           "hide": false,
@@ -3732,8 +3688,8 @@
     ]
   },
   "timezone": "",
-  "title": "1KV Dash",
-  "uid": "iqpIza17z",
-  "version": 125,
+  "title": "1KV Dash_test",
+  "uid": "iqpIza1",
+  "version": 1,
   "weekStart": "monday"
 }
