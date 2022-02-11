@@ -12,7 +12,7 @@ You can have up to 10 Dashboards configured for free.
  
 Don’t worry about it, you don’t need the Pro version, everything will work without it.
 
-## 2. Install JSON Plugin
+## 2. Install `JSON API` Plugin
 ![image](https://user-images.githubusercontent.com/66147586/152935964-16f85d99-b4ce-4806-b270-41143de45346.png)
 
 https://grafana.com/grafana/plugins/marcusolsson-json-datasource/
