@@ -77,6 +77,7 @@ You should have 15 data sources
 
 ## 4. Import Dashboard
 Match input to data sources from drop down. If you follow the naming convention from step 3 everything should match
+
 ![image](https://user-images.githubusercontent.com/66147586/153524297-10c86c06-8a69-4d46-ab51-ce83de056f6a.png)
 
 
