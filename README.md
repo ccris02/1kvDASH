@@ -77,8 +77,8 @@ You should have 15 data sources
 
 ## 4. Import Dashboard
 Match input to data sources from drop down. If you follow the naming convention from step 3 everything should match
- ## Missing image!! add it!!
- 
+![image](https://user-images.githubusercontent.com/66147586/153524297-10c86c06-8a69-4d46-ab51-ce83de056f6a.png)
+
 
 ## 5. Change top of the page links
 Top of the page click on the Gear icon > select Links
@@ -91,7 +91,9 @@ To modify link, click on the box with arrow next to the link
  ![image](https://user-images.githubusercontent.com/66147586/152936174-eb7bacdf-e610-4b6f-b440-542d170c9c09.png)
 
 ## 6. Dashboard Refresh
-Dashboard is set to not refresh unless you select the refresh button, this can be changed to refresh every ```(30sec, 1min, 5min, 15min, 30min, 1hr, 2hr, 1day)```
+Dashboard is configured not to refresh unless you press the refresh button, this can be changed to refresh every 
+
+```(30sec, 1min, 5min, 15min, 30min, 1hr, 2hr, 1day)```
 
 I don't want to waste Will's resources if I don't need to.
 
