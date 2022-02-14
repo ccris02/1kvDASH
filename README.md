@@ -1,7 +1,7 @@
 # Grafana Dashboard for 1kv node operator
 ![1kv](https://user-images.githubusercontent.com/66147586/153630377-a05afd07-4ac0-4a2f-9d20-42c34da1d4e8.PNG)
 
-https://grafana.com/grafana/dashboards/15741/reviews
+https://grafana.com/grafana/dashboards/15741
 
 ## 1. Set up a free Grafana Cloud.
 https://grafana.com/products/cloud/
