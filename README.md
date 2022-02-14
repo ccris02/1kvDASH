@@ -1,7 +1,7 @@
 # Grafana Dashboard for 1kv node operator
 ![1kv](https://user-images.githubusercontent.com/66147586/153630377-a05afd07-4ac0-4a2f-9d20-42c34da1d4e8.PNG)
 
-
+https://grafana.com/grafana/dashboards/15741/reviews
 
 ## 1. Set up a free Grafana Cloud.
 https://grafana.com/products/cloud/
@@ -80,6 +80,7 @@ You should have 15 data sources
 Import via grafana.com `15741`
 
 https://grafana.com/grafana/dashboards/15741
+
 ![image](https://user-images.githubusercontent.com/66147586/153655253-e0428f7a-af17-45ef-8e7f-9285d510f355.png)
 
 Match input to data sources from drop down. If you follow the naming convention from step 3 everything should match
