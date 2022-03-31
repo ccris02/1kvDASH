@@ -3,7 +3,7 @@
 
 https://grafana.com/grafana/dashboards/15741
 
-## 1. Set up a free Grafana Cloud.
+## 1. Set up a free Grafana Cloud
 https://grafana.com/products/cloud/
 
 You can have up to 10 Dashboards configured for free.
